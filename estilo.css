@@ -1,0 +1,98 @@
+/* 					<!-- andreeppinghaus@gmail.com --> */
+
+.lists
+{
+	height: 200px;
+	width: 300px;
+	border: 1px solid #000000;
+}
+
+#dvitem{
+	padding-top: 100px;
+}
+
+#hd{
+	background-color: #39eb99;
+	width:1230px;
+	position: fixed;
+    -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow:    0px 5px 5px rgba(50, 50, 50, 0.77);
+    box-shadow:         0px 5px 5px rgba(50, 50, 50, 0.77); 
+    height:70px;
+	padding: 20px;
+}
+
+#bdy{
+	padding-top:80px;
+	padding-left:20px;
+	padding-right:20px;
+	padding-bottom:20px;
+}
+
+
+.title{
+	font-size:25px;
+	color:#FFFFFF;
+	text-align:center;
+}
+
+#inputpct{
+	width:100%;
+	position: fixed;
+}
+
+#fdspct{
+	width: 100%;
+}
+
+#txtpct{
+	float: left;
+}
+
+#spnpct{
+	width: 20px;
+}
+
+#fdslgd{
+	width: 100%;
+}
+
+#btnpct{
+	float: left;
+	padding-left: 20px;
+}
+
+.floater{
+    -webkit-box-shadow: 0px 5px 5px rgba(50, 50, 50, 0.77);
+    -moz-box-shadow:    0px 5px 5px rgba(50, 50, 50, 0.77);
+    box-shadow:         0px 5px 5px rgba(50, 50, 50, 0.77); 
+}
+
+
+.bgg{background-color:green}
+.bgy{background-color:yellow}
+.bgr{background-color:red}
+
+.fcg{color: green}
+.fcy{color: yellow}
+.fcr{color: red}
+
+  .draggable { width: 100px; height: 20px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  .droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+  #draggable { width: 100px; height: 20px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+fieldset {
+  padding: 3px;
+  width: 300px;
+  float: left;
+}
+#trg {
+    width: 70%;
+}
+#vrd {
+    width: 30%;
+}
+label {
+  float:left;
+  font-weight:bold;
+}

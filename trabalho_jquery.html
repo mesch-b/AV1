@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital Tudo Certo - Triagem de pacientes</title>
+  <link rel="stylesheet" href="jquery/jquery-ui.css">
+
+<style type='text/css'>
+.lists
+{
+	height: 200px;
+	width: 300px;
+	border: 1px solid #000000;
+}
+.bgg{background-color:green}
+.bgy{background-color:yellow}
+.bgr{background-color:red}
+
+.fcg{color: green}
+.fcy{color: yellow}
+.fcr{color: red}
+
+  .draggable { width: 100px; height: 20px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  .droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+
+  #draggable { width: 100px; height: 20px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+fieldset {
+  padding: 3px;
+  width: 300px;
+  float: left;
+}
+#trg {
+    width: 70%;
+}
+#vrd {
+    width: 30%;
+}
+label {
+  float:left;
+  font-weight:bold;
+}
+</style>
+  <script src="jquery/external/jquery/jquery.js"></script>
+  <script src="jquery/jquery-ui.js"></script>
+<script>
+$(document).ready(function()
+{
+	
+		$("#btnpct").on("click",function(e) 
+		{	
+			var texto = $("#txtpct").val();
+			if (texto == ""){
+				alert("Informe um nome v?lido para o paciente!");
+			}
+			else{
+				var hash = texto.split("").reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);
+				$("#list1").append("<li draggable=true id=txt" +hash+" >" + texto + "</li>");
+				$("#txtpct").val("");
+			}
+			$("#txtpct").focus();
+		});
+
+    $("#list1").on("dragover",function(e)
+		{
+			e.preventDefault();
+		});
+	
+		$(document).on("dragstart", "#list2 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list3 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list4 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+	
+		$("#list1").on("drop",function(e)
+		{
+			e.preventDefault();		
+			var data=e.originalEvent.dataTransfer.getData("text");
+			e.target.appendChild(document.getElementById(data));			
+		});
+		
+
+    
+    $("#list2").on("dragover",function(e)
+		{
+			e.preventDefault();
+		});
+	
+		$(document).on("dragstart", "#list1 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list3 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list4 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+	
+		$("#list2").on("drop",function(e)
+		{
+			e.preventDefault();		
+			var data=e.originalEvent.dataTransfer.getData("text");
+			e.target.appendChild(document.getElementById(data));			
+		});
+		
+    $("#list3").on("dragover",function(e)
+		{
+			e.preventDefault();
+		});
+	
+		$(document).on("dragstart", "#list1 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list2 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list4 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+	
+		$("#list3").on("drop",function(e)
+		{
+			e.preventDefault();		
+			var data=e.originalEvent.dataTransfer.getData("text");
+			e.target.appendChild(document.getElementById(data));			
+		});
+		
+    $("#list4").on("dragover",function(e)
+		{
+			e.preventDefault();
+		});
+	
+		$(document).on("dragstart", "#list1 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list2 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+		$(document).on("dragstart", "#list3 > li", function(e)
+		{
+			e.originalEvent.dataTransfer.setData("text",e.target.id);
+		});
+	
+		$("#list4").on("drop",function(e)
+		{
+			e.preventDefault();		
+			var data=e.originalEvent.dataTransfer.getData("text");
+			e.target.appendChild(document.getElementById(data));			
+		});
+		
+		
+		
+});
+
+</script>
+</head>
+<body style="cursor: auto; background-color:lightblue;">
+<h1>Hospital Tudo Certo - Triagem de pacientes</h1>
+
+	<fieldset>
+		<legend>Paciente</legend>
+		<input type="text" id="txtpct"/>
+		<input type="button" value="Cadastrar Paciente" id="btnpct">
+	</fieldset>
+	<br><br><br>
+	<h6>* ENTRE COM O NOME DO PACIENTE, E DESIGNE-O PARA A AREA DESTINADA DE ACORDO COM A LEGENDA ABAIXO, ARRASTANDO O NOME DO MESMO PARA AS CAIXAS COM AS CORES CORRESPONDENTES</h6>
+	<table>
+		<td>
+			<fieldset>
+				<legend>Espera de triagem</legend>
+				<ul id="list1" class="lists">
+				</ul>
+			</fieldset>
+		</td>
+		<td>
+			<fieldset>
+				<legend>Enfermidade leve</legend>
+				<ul id="list2" class="lists bgg">
+					
+				</ul>
+			</fieldset>
+		</td>
+		<td>
+			<fieldset>
+				<legend>Enfermidade media</legend>
+				<ul id="list3" class="lists bgy">
+					
+				</ul>
+			</fieldset>
+		</td>
+		<td>
+			<fieldset>
+				<legend>Enfermidade grave</legend>
+				<ul id="list4" class="lists bgr">
+					
+				</ul>
+			</fieldset>
+		</td>
+	</table>
+<fieldset>
+	<legend>Legenda</legend>
+	<table>
+		<tr>
+			<td><label class="bgg fcg">XXXXXX</label> </td><td>Area destinada para pacientes com enfermidades leves</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td><label class="bgy fcy">XXXXXX</label> </td><td>Area destinada para pacientes com enfermidades medias, que requerem maiores cuidados</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td><label class="bgr fcr">XXXXXX</label> </td><td>Area destinada para pacientes com enfermidades graves, que requerem cuidados imediatos. Atente aos riscos de vida!</td>
+		</tr>
+	</table>
+</fieldset>
+
+</body>
+</html>
